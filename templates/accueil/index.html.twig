@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="bienvenue">Bienvenue chez Magasin OP</h1>
+        <p id="coordonees">Rue de La Tulipe, 22 - 1000 Bruxelles <br> 02/25.85.12 <br> Lu-ve 10h-19h </p>
+
+        {# Menus externalisés #}
+        {{ include('menu/public_menu.html.twig') }}
+{# 
+        {{ form_start(form) }}
+            { Customisation du formulaire ... }
+                {{ form_row(form.phoneNumber) }}
+        {{ form_end(form) }} #}
+{# cfr site tuto console #}
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                {{ form_start(formFiltre) }}
+                    {{ form_row(formFiltre.marque) }} 
+                    {{ form_row(formFiltre.prix_min) }}
+                    {{ form_row(formFiltre.prix_max) }}
+                    {{ form_row(formFiltre.processeur) }}
+                    {{ form_row(formFiltre.systemeExploitation) }}
+
+                    <button type="submit" class="btn-filtrer">Rechercher</button>
+                {{ form_end(formFiltre) }}
+            </div>
+
+
+        {# cfr bootstrap cards + l58 #}
+        <div class="col-md-10">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for ordi in ordis %}
+                    <div class="col">
+                        <div class="card">
+                            <div style="height:305px;">
+                                <img class="card-img-top" src="{{ ordi.image }}" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ ordi.nom }}</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Marque : {{ ordi.marque }}</li>
+                                <li class="list-group-item">Prix : {{ ordi.prix }}</li>
+                                <li class="list-group-item">Processeur : {{ ordi.processeur }}</li>
+                                <li class="list-group-item">Système exploitation : {{ ordi.systemeExploitation }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
+{# {% for ordi in ordis  %}
+{{ordi.marque}}
+{{ordi.image}}
+{% endfor %} #}
+
+
+
+{#
+{{ordi.image}}
+{{ordi.nom}}
+{{ordi.marque}}
+{{ordi.prix}}
+{{ordi.processeur}}
+{{ordi.systemeExploitation}} #}
+

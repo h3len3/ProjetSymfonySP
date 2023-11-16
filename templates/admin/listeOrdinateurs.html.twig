@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Liste ordinateurs{% endblock %}
+
+{% block body %}
+    <div class="container">
+    {{ include('menu/admin_menu2.html.twig') }}
+
+    {# Tuto YTM #}
+
+{# TODO ajout bouton ajouter produits/ordi #}
+        <table class="table table-striped">
+
+            <thead>
+            <tr>
+                <th scope="col">Ref</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Prix</th>
+                {# image 
+                et systeme exploitation #}
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for ordinateur in ordinateurs %}
+                <tr>
+                    <td>{{ ordinateur.reference }}</td>
+                    <td>{{ ordinateur.nom }}</td>
+                    <td>{{ ordinateur.marque }}</td>
+                    <td>{{ ordinateur.prix }}</td>
+                    {# image 
+                    et systeme exploitation #}
+                    <td> - </td>
+                    <td> - </td>
+                    {# <td><a href="{{ path("admin_edit_ordi") }}" class="admin-btn-update">
+                            <i class="bi bi-gear-fill"></i>
+                        </a></td>
+                    <td><a href="{{ path("admin_delete_ordi") }}" class="admin-btn-delete">
+                            <i class="bi bi-dash-circle-fill"></i>
+                        </a></td> #}
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+{% endblock %}

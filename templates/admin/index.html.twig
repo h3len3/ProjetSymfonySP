@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil admin{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {{ include('menu/admin_menu.html.twig') }}
+    </div>
+
+    <div class="admin_titre" id="titre-admin">
+        <h1>- &nbsp Admin &nbsp -</h1>
+    </div>
+
+    <div class="gestion">
+
+        <a href="{{ path("admin_liste_employes") }}" class="choix-employe">Liste employés</a>
+        <br>
+        <br>
+        <a href="{{ path("admin_liste_ordinateurs") }}" class="choix-ordi">Liste ordinateurs</a>
+
+
+    </div>
+{% endblock %}
+

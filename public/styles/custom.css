@@ -1,0 +1,262 @@
+/* Sidebar */
+/* .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0; */ /* Height of navbar */
+    /* box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; */ /* Scrollable contents if viewport is shorter than content. */
+/* } */
+
+body{
+    /* background-color: #fff783; */
+    /* background-color: #89c4a0; */
+    /* background-color: rgb(228, 231, 236); */
+    /* background-color: grey; */
+    /* background-color: #517aa0; */
+    /* background-color: #eee2d6; */
+    /* background-color: #b8daee4d; */
+    /* background-color: #0d6efd; */
+    /* background-color: #0d6efd66; */
+    /* background-color: #7b729b8c; */
+    background-color: #517aa0a9;
+}
+
+.main_nav {
+    /* background-color: whitesmoke; */
+    /* background-color: cornflowerblue; */
+    /* background-color: rgba(100, 148, 237, 0.582); */
+    /* background-color: #eee2d6; */
+    /* background-color: #517aa0a9; */
+    /* background-color: #7b729b8c; */
+    /* background-color: #f9d9af; */
+    /* background-color: #f9d9afde; */
+    /* background-color: #e1ded9; */
+    /* background-color: #c1c1c1; */
+    /* background-color: #b5b4b4; */
+    background-color: #c1c1c1b2;
+}
+
+.main_nav .btn:hover{
+    font-weight: bold;
+} 
+
+.btn-nav_public {
+    color:black
+}
+
+.btn-nav_public_part {
+    background-color: black;
+    color:white;
+}
+
+
+.admin_nav {
+    background-color: #1a1818 !important;
+    color:white;
+    margin-top: 6px;
+}
+
+
+.btn-nav_admin {
+    color: white;
+    
+}
+
+.admin_nav .btn:hover{
+    font-weight: bold;
+}
+
+.navbar {
+    margin-bottom: 7px;
+}
+
+.navbar {
+    border-radius: 4px;
+}
+
+.sidebar {
+    /* background-color:  rgba(100, 148, 237, 0.582); */
+    /* background-color: #eee2d6; */
+    /* background-color: #517aa0a9; */
+    /* background-color: #7b729b8c; */
+    /* background-color: #f9d9af; */
+    /* background-color: #f9d9afde; */
+    /* background-color: #e1ded9; */
+    /* background-color: #c1c1c1; */
+    /* background-color:#b5b4b4; */
+    background-color: #c1c1c1b2;
+    border-radius: 4px;
+}
+
+.btn-nav_public {
+    margin-right: 8px;
+}
+
+.gestion {
+    margin-left: 190px;
+    margin-top: 60px;
+    
+}
+
+.choix-employe {
+    text-decoration: none;
+    color: black;
+    border: solid 2px;
+    /* border-radius: 25% 10%; */
+    border-radius: 5px;
+    background-color: white;
+    padding: 3px;
+
+
+}
+
+.choix-ordi {
+    text-decoration: none;
+    color: black;
+    border:solid 2px;
+    border-radius: 5px;
+    background-color: white;
+    padding: 3px;
+}
+
+.choix-employe:hover {
+    font-weight: bold;
+}
+
+.choix-ordi:hover {
+    font-weight: bold;
+}
+
+.bienvenue {
+
+    /* color: #0d6efd; */
+    color:white;
+    margin-top: 3px;
+    
+}
+
+.btn-lg, .lg {   
+    margin-left: 18px;
+}
+
+
+.btn-lg {
+margin-top: 20px;
+}
+
+.input-lg {
+    /* margin-right: 95px; */
+    width: 374px;
+    
+}
+
+.lg {
+    margin-top: 12px;
+}
+
+.admin-btn-update{
+    color: #348a34;
+}
+.admin-btn-delete{
+    color: #c72624;
+}
+.admin-btn-update:hover{
+    color: #3ea83e;
+}
+.admin-btn-delete:hover{
+    color: #f52c2a;
+}
+
+.admin-btn-nouvempl {
+    margin-top: 4px;
+    margin-bottom: 7px;
+}
+
+.btn-filtrer {
+    
+    color: white;
+    
+    border:solid black;
+    border-radius: 5px;
+    background-color: #517aa0a9;
+    padding: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    /* padding-right: 83px; */
+    border-width: 2px;
+    
+}
+
+.btn-filtrer:hover{
+    font-weight: bold;
+} 
+
+.rubrique {
+    font-weight: bolder;
+}
+
+/* .admin-center {
+    text-align: center;
+    color: white;
+    font-weight: 800;
+
+} */
+
+
+.admin_titre {
+    text-align: center;
+}
+
+.admin_titre h1 {
+    background-color: black;
+    color: white;
+    /* text-align: center; */
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    display: inline-block;
+
+    border-radius: 5px;
+}
+ 
+/* #titre-admin {
+    background-color: black;
+    color: white;
+    text-align: center;
+
+} */
+
+.gestion {
+    text-align: left;
+}
+
+/* #coordonees {
+    margin-left: 60vw;
+} */
+
+#btn-deco {
+    margin-right: 4px;
+}

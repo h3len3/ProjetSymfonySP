@@ -1,0 +1,36 @@
+{# version public_menu :
+
+<nav class="navbar navbar-dark main-nav">
+
+    <span class="float-left">
+        <a href="#" class="btn btn-nav">Contact</a>
+    </span>
+
+    <span class="float-right">
+            
+        {% if app.user %}
+            <a href="{{ path("admin_index") }}" class="btn btn-nav">Admin</a>
+            <a href="{{ path("app_logout") }}" class="btn btn-nav">Déconnexion</a>
+        {% else %}
+            <a href="{{ path("app_login") }}" class="btn btn-nav">Espace pro</a>
+        {% endif %}
+    </span>
+
+</nav> #}
+
+
+
+<nav class="navbar navbar-dark admin_nav">
+        <span class="float-left">
+                {# <a href="{{ path("admin_index") }}" class="btn btn-nav_admin">Home</a>
+                <a href="{{ path("admin_liste_employes") }}" class="btn btn-nav_admin">Liste employés</a>
+                <a href="{{ path("admin_liste_ordinateurs") }}" class="btn btn-nav_admin">Liste ordinateurs</a> #}
+                <a href="{{ path("accueil") }}" class="btn btn-nav_admin">Retour sur le site</a>
+                <a href="{{ path("admin_index") }}" class="btn btn-nav_admin">Retour admin</a>
+                    {# #[Route('/admin/', name: 'admin_index')] #}
+        </span>
+        <span class="float-right">
+                {# <a href="{{ path("accueil") }}" class="btn btn-nav_admin">Retour sur le site</a> #}
+                <a href="{{ path("app_logout") }}" class="btn btn-nav_admin">Déconnexion</a>
+        </span>
+</nav>

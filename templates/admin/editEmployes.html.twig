@@ -1,0 +1,33 @@
+{# similaire à registrer.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Editer employé{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {# tuto YTM #}
+        {{ include('menu/admin_menu2.html.twig') }}
+        <h1>Admin - Edition d'un employé</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }} 
+        {# <-> rappel: registrationForm de RegistrationController #}
+            {{ form_row(registrationForm.mail) }}
+
+            {{ form_row(registrationForm.nom) }}
+            {{ form_row(registrationForm.prenom) }}
+            {# {{ form_row(registrationForm.agreeTerms) }} #}
+
+            <button type="submit" class="btn btn-primary">Modifier</button>
+            {# <button type="submit" class="btn ">Mettre à jour l'employé</button> #}
+            
+        {{ form_end(registrationForm) }}
+
+    </div>
+{% endblock %}
+
+
+
+
