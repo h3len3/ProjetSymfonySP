@@ -39,7 +39,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    // Ajout -> registration form 
+    // Ajout -> registration  
     
     #[Route('/admin/edit_employes/{id}', name: 'admin_edit_employes')]
      // id pour pouvoir pointer ici ds route + ds path ds templatelisteEmployes
@@ -94,13 +94,13 @@ class AdminController extends AbstractController
     // ajouter semblable à ajout employes ; semblable à registration 
 
     /*  #[Route('/admin/edit_ordi', name: 'admin_edit_ordi')]
-    public function edit_ordi(UserRepository $userRepository): Response
+    public function edit_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
     {
         //TODO 
     }
 
     #[Route('/admin/delete_ordi', name: 'admin_delete_ordi')]
-    public function delete_ordi(UserRepository $userRepository): Response
+    public function delete_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
     {
         //TODO 
     } */
