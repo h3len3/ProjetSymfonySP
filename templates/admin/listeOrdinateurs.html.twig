@@ -8,7 +8,11 @@
 
     {# Tuto YTM #}
 
-{# TODO ajout bouton ajouter produits/ordi #}
+        <div class="float-right">
+            <a href="{{ path("admin_ajouter_ordinateur") }}" class="btn btn-primary btn-ajouter">Ajouter ordinateur portable</a>
+        </div>
+
+
         <table class="table table-striped">
 
             <thead>
@@ -27,24 +31,19 @@
             <tbody>
             {% for ordinateur in ordinateurs %}
                 <tr>
-                    <td>{{ ordinateur.reference }}</td>
+                    <td>
+                        <a href="{{ path("admin_montrer_ordinateur", {id: ordinateur.id}) }}" class="btn-primary">
+                            {{ ordinateur.reference }}
+                        </a>
+                    </td>
+                    
                     <td>{{ ordinateur.nom }}</td>
                     <td>{{ ordinateur.marque }}</td>
                     <td>{{ ordinateur.prix }}</td>
-                    {# image 
-                    et systeme exploitation #}
-                    <td> - </td>
-                    <td> - </td>
-                    {# <td><a href="{{ path("admin_edit_ordi") }}" class="admin-btn-update">
-                            <i class="bi bi-gear-fill"></i>
-                        </a></td>
-                    <td><a href="{{ path("admin_delete_ordi") }}" class="admin-btn-delete">
-                            <i class="bi bi-dash-circle-fill"></i>
-                        </a></td> #}
+                   
                 </tr>
             {% endfor %}
             </tbody>
-
         </table>
 
     </div>

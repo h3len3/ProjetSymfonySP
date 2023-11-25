@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Ajout ordinateur portable{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ include('menu/admin_menu.html.twig') }}
+        <h1>Admin - Ajout d'un nouvel ordinateur portable</h1>
+
+        {{ form_errors(ajoutOrdinateurForm) }}
+
+        {{ form_start(ajoutOrdinateurForm) }}
+            {{ form_row(ajoutOrdinateurForm.reference) }}
+            {{ form_row(ajoutOrdinateurForm.nom) }}
+            {{ form_row(ajoutOrdinateurForm.marque) }}
+            {{ form_row(ajoutOrdinateurForm.prix) }}
+            {{ form_row(ajoutOrdinateurForm.processeur) }}
+            {{ form_row(ajoutOrdinateurForm.systemeExploitation) }}
+            {{ form_row(ajoutOrdinateurForm.commentaire) }}
+            {# {{ form_row(ajoutOrdinateurForm.image) }} #}
+
+            <button type="submit" class="btn btn-primary" id="btn-ajoutOrdi">Ajout nouvel ordinateur portable</button>
+
+            <a href="{{ path("admin_liste_ordinateurs") }}" class="btn btn-primary btn-nav_admin" id="btn-retourlisteDsajout" >Retour liste ordinateur portable</a>
+    
+        {{ form_end(ajoutOrdinateurForm) }}
+    </div>
+
+{% endblock %}

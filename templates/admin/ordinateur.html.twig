@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ include('menu/admin_menu.html.twig') }}
+
+        <img class="img-fluid" src="{{ asset(ordinateur.image) }}" alt="No Image"> <br> 
+        Référence : {{ ordinateur.reference }} <br>
+        Nom : {{ ordinateur.nom }} <br>
+        Marque : {{ ordinateur.marque }} <br>
+        Prix : {{ ordinateur.prix }} <br>
+        Système d'exploitation : {{ ordinateur.systemeExploitation }} <br>
+        Processeur : {{ ordinateur.processeur }} <br>
+    </div>
+
+    <a href="{{ path("admin_liste_ordinateurs") }}" class="btn btn-primary btn-nav_admin" id="btn-retourliste" >Retour liste ordinateur portable</a>
+    {# class="btn btn-primary" #}
+
+
+{% endblock %}

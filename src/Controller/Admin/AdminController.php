@@ -2,13 +2,16 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\OrdinateurPortable;
 use App\Form\EditEmployesFormType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\AjoutOrdinateurPortableFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OrdinateurPortableRepository;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
@@ -90,17 +93,66 @@ class AdminController extends AbstractController
             'ordinateurs' => $ordinateurs,
         ]);
     }
-    
-    // ajouter semblable à ajout employes ; semblable à registration 
 
-    /*  #[Route('/admin/edit_ordi', name: 'admin_edit_ordi')]
-    public function edit_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
+
+    //montrer produit
+    #[Route('/admin/ordinateur/{id}', name: 'admin_montrer_ordinateur')]
+    public function monter_ordinateur(OrdinateurPortableRepository $ordinateurPortableRepository, int $id): Response
+    {
+        $ordinateur = $ordinateurPortableRepository->find($id);
+
+        return $this->render('admin/ordinateur.html.twig', [
+            'ordinateur' => $ordinateur,
+        ]);
+    }
+    
+
+
+    #[Route('/admin/ajouter_ordinateur', name: 'admin_ajouter_ordinateur')]
+    public function ajouter_ordinateur(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    {
+        $ordinateur = new OrdinateurPortable();
+        $form = $this->createForm(AjoutOrdinateurPortableFormType::class, $ordinateur);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+           //traitement image TODO
+
+            $data = $form->getData();
+            $ordinateur->setNom($data->getNom());
+            $ordinateur->setReference($data->getReference());
+            $ordinateur->setCommentaire($data->getCommentaire());
+            $ordinateur->setMarque($data->getMarque());
+            $ordinateur->setPrix($data->getPrix());
+            $ordinateur->setProcesseur($data->getProcesseur());
+            $ordinateur->setSystemeExploitation($data->getSystemeExploitation());
+
+            $user = $this->getUser();
+            $ordinateur->setUser($user);
+
+            $em->persist($ordinateur);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_liste_ordinateurs');
+        }
+
+        return $this->render('admin/ajoutOrdinateurPortable.html.twig', [
+            'ajoutOrdinateurForm' => $form->createView(),
+        ]);
+    }
+
+    
+    /*  #[Route('/admin/modif_ordi', name: 'admin_modif_ordi')]
+    public function modif_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
     {
         //TODO 
     }
 
-    #[Route('/admin/delete_ordi', name: 'admin_delete_ordi')]
-    public function delete_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
+    
+
+    #[Route('/admin/supprimer_ordi', name: 'admin_supprimer_ordi')]
+    public function supprimer_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
     {
         //TODO 
     } */

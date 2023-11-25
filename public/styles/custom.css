@@ -260,3 +260,41 @@ margin-top: 20px;
 #btn-deco {
     margin-right: 4px;
 }
+
+#btn-retourliste{
+    margin-left: 200px;
+    margin-top: 16px;
+}
+
+#btn-ajoutOrdi {
+    /* background-color: #3ea83e; */
+    background-color: #348a34;
+    color: white;
+    border: solid 0.5px black;
+}
+
+#btn-ajoutOrdi:hover {
+    font-weight: 600;
+}
+
+#btn-retourlisteDsajout:hover {
+    font-weight: 600;
+}
+
+
+#btn-retourlisteDsajout {
+    margin-left: 45px;
+} 
+
+.btn-ajouter {
+    background-color: #348a34;
+    margin-bottom: 4px;
+    border:solid 1px black
+}
+
+.btn-ajouter:hover {
+    background-color: #348a34;
+    margin-bottom: 4px;
+    border:solid 1px black;
+    font-weight: 600;
+}
