@@ -20,8 +20,8 @@ class OrdinateurPortableFixtures extends Fixture
         for ($i = 0; $i <= 15; $i++) {
 
             $op = new OrdinateurPortable();
-            // si on a un hydrate, pas besoin de sets...
-            //TODO update foreach images
+            
+            //TODO mieux foreach images
             //TODO uuid pour la référence
             $op->setReference("op" . $i);
             $op->setImage("/images/image".$i+1 .".jpg");

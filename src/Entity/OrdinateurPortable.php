@@ -57,9 +57,10 @@ class OrdinateurPortable
     #[Assert\Choice(['Asus', 'Lenovo', 'HP', 'Dell', 'Fujitsu', 'Microsoft'])]
     private ?string $marque = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 7, scale: 2, nullable: true)]
-    #[Assert\Positive]
+    #[ORM\Column(type: Types::INTEGER, precision: 7, scale: 2, nullable: true)]
+    #[Assert\PositiveOrZero]
     private int $prix;
+
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Choice(['Core i3','Core i5','Core i7','Core i9','AMD','Ryzen 3','Ryzen 5','Intel Xeon'])]

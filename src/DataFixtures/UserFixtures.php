@@ -31,7 +31,9 @@ class UserFixtures extends Fixture
         }
         $manager->flush();
 
-    // Je souhaite que UN user uniquement ait le rôle admin (rôle permettant de inscr/ajouter un employé)
+    // Je souhaite que UN user uniquement ait le rôle admin (rôle permettant de inscr/ajouter un employé) 
+                                                            /* NB: c'est aussi le seul pour le moment à pouvoir faire le crud au niveau des ordinateurs 
+                                                             --> TODO modifier cette situation plus tard afin que des users pusisent aussi ajouter, éditer, supprimer un ordi */
     // Je fais/instancie un objet de la classe user qui a un rôle
     $admin =new User();
     $admin->setMail('boss@mail.com');

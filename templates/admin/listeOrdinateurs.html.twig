@@ -35,12 +35,17 @@
                         <a href="{{ path("admin_montrer_ordinateur", {id: ordinateur.id}) }}" class="btn-primary">
                             {{ ordinateur.reference }}
                         </a>
-                    </td>
-                    
+                    </td>       
                     <td>{{ ordinateur.nom }}</td>
                     <td>{{ ordinateur.marque }}</td>
                     <td>{{ ordinateur.prix }}</td>
-                   
+                    <td><a href="{{ path("admin_edit_ordinateur", {id: ordinateur.id}) }}" class="admin-btn-edit-ordinateur">
+                            <i class="bi bi-gear-fill"></i>
+                        </a></td>
+                    <td><a href="{{ path("admin_delete_ordinateur", {id: ordinateur.id}) }}" class="admin-btn-delete-ordinateur">
+                            <i class="bi bi-dash-circle-fill"></i>
+                        </a></td>
+                
                 </tr>
             {% endfor %}
             </tbody>

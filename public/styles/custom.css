@@ -298,3 +298,24 @@ margin-top: 20px;
     border:solid 1px black;
     font-weight: 600;
 }
+
+#btn-editOrdi {
+
+        background-color: #348a34;
+        color: white;
+        border: solid 0.5px black;
+}
+    
+    
+#btn-editOrdi:hover {
+        font-weight: 600;
+    }
+
+
+.admin-btn-edit-ordinateur {
+    color: rgba(0, 0, 255, 0.733);
+}
+
+.admin-btn-delete-ordinateur {
+        color: #c72624
+    }

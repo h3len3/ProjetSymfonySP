@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\OrdinateurPortable;
 use App\Form\EditEmployesFormType;
 use App\Repository\UserRepository;
+use App\Form\EditOrdinateurFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\AjoutOrdinateurPortableFormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,7 +83,7 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_liste_employes');
     }
 
-    // PARTIE Gérer ORDINATEUR --> #TODO
+    // PARTIE Gérer ORDINATEUR  
 
     #[Route('/admin/liste_ordinateurs', name: 'admin_liste_ordinateurs')]
     public function liste_ordinateurs(OrdinateurPortableRepository $ordinateurPortableRepository): Response
@@ -95,7 +96,7 @@ class AdminController extends AbstractController
     }
 
 
-    //montrer produit
+    //montrer ordinateur ; détails sur l'ordi
     #[Route('/admin/ordinateur/{id}', name: 'admin_montrer_ordinateur')]
     public function monter_ordinateur(OrdinateurPortableRepository $ordinateurPortableRepository, int $id): Response
     {
@@ -109,7 +110,7 @@ class AdminController extends AbstractController
 
 
     #[Route('/admin/ajouter_ordinateur', name: 'admin_ajouter_ordinateur')]
-    public function ajouter_ordinateur(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function ajouter_ordinateur(Request $request, EntityManagerInterface $em): Response
     {
         $ordinateur = new OrdinateurPortable();
         $form = $this->createForm(AjoutOrdinateurPortableFormType::class, $ordinateur);
@@ -117,7 +118,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-           //traitement image TODO
+           //TODO traitement image 
 
             $data = $form->getData();
             $ordinateur->setNom($data->getNom());
@@ -128,8 +129,7 @@ class AdminController extends AbstractController
             $ordinateur->setProcesseur($data->getProcesseur());
             $ordinateur->setSystemeExploitation($data->getSystemeExploitation());
 
-            $user = $this->getUser();
-            $ordinateur->setUser($user);
+    
 
             $em->persist($ordinateur);
             $em->flush();
@@ -143,17 +143,53 @@ class AdminController extends AbstractController
     }
 
     
-    /*  #[Route('/admin/modif_ordi', name: 'admin_modif_ordi')]
-    public function modif_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
+    #[Route('/admin/edit_ordinateur/{id}', name: 'admin_edit_ordinateur')]
+    public function edit_ordinateur(OrdinateurPortableRepository $ordinateurPortableRepository, int $id, EntityManagerInterface $em, Request $request): Response
     {
-        //TODO 
+        $ordinateur= $ordinateurPortableRepository->find($id);
+        $form = $this->createForm(EditOrdinateurFormType::class, $ordinateur);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            //TODO image edit 
+
+            $data = $form->getData();
+            $ordinateur->setNom($data->getNom());
+            $ordinateur->setReference($data->getReference());
+            $ordinateur->setCommentaire($data->getCommentaire());
+            $ordinateur->setMarque($data->getMarque());
+            $ordinateur->setPrix($data->getPrix());
+            $ordinateur->setProcesseur($data->getProcesseur());
+            $ordinateur->setSystemeExploitation($data->getSystemeExploitation());
+
+            $em->persist($ordinateur);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_liste_ordinateurs');
+        }
+
+        return $this->render('admin/editOrdinateur.html.twig', [
+            'editOrdinateurForm' => $form->createView(),
+        ]);
     }
 
     
 
-    #[Route('/admin/supprimer_ordi', name: 'admin_supprimer_ordi')]
-    public function supprimer_ordi(OrdinateurPortableRepository $ordinateurPortableRepository): Response
+    #[Route('/admin/delete_ordi/{id}', name: 'admin_delete_ordinateur')]
+    public function delete_ordinateur(OrdinateurPortableRepository $ordinateurPortableRepository, int $id, EntityManagerInterface $em): Response
     {
-        //TODO 
-    } */
+        $ordinateur = $ordinateurPortableRepository->find($id);
+
+        //TODO traitement image 
+
+        $em->remove($ordinateur);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_liste_ordinateurs');
+
+        
+    } 
+
+    
 }

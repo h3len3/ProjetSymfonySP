@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Modifier ordinateur portable{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ include('menu/admin_menu.html.twig') }}
+        <h1>Admin - Modifier ce qui concerne un ordinateur portable</h1>
+
+        {{ form_errors(editOrdinateurForm) }}
+
+        {{ form_start(editOrdinateurForm) }}
+            {{ form_row(editOrdinateurForm.reference) }}
+            {{ form_row(editOrdinateurForm.nom) }}
+            {{ form_row(editOrdinateurForm.marque) }}
+            {{ form_row(editOrdinateurForm.prix) }} 
+            {{ form_row(editOrdinateurForm.processeur) }}
+            {{ form_row(editOrdinateurForm.systemeExploitation) }}
+            {{ form_row(editOrdinateurForm.commentaire) }}
+            {# {{ form_row(editOrdinateurForm.image) }} #}
+
+            <button type="submit" class="btn btn-primary" id="btn-editOrdi">Modifier ordinateur portable</button>
+
+            <a href="{{ path("admin_liste_ordinateurs") }}" class="btn btn-primary btn-nav_admin" id="btn-retourlisteDsajout" >Retour liste ordinateur portable</a>
+    
+        {{ form_end(editOrdinateurForm) }}
+    </div>
+
+{% endblock %}
+
